@@ -33,8 +33,24 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("This The Appabr"),
+        title: Text(
+          "এ আর মালিক সিডস প্রাঃ লিঃ",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.vpn_key, color: Colors.white),
+            onPressed: () {},
+          ),
+          SizedBox(
+            width: 3,
+          ),
+        ],
       ),
+      drawer: Drawer(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -60,7 +76,7 @@ class HomePage extends StatelessWidget {
                           width: MediaQuery.of(context).size.width,
                           color: Colors.black45,
                           child: Text(
-                            "This is for then heading",
+                            "এ আর মালিক সিডস প্রাঃ লিঃ",
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -117,47 +133,7 @@ class HomePage extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: mowshomifol.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return GestureDetector(
-                        onTap: () {
-                          print("1");
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 110,
-                                width: 130,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image:
-                                        AssetImage("assets/images/unnamed.jpg"),
-                                    fit: BoxFit.cover,
-                                  ),
-                                  border: Border.all(
-                                    color: Colors.green,
-                                  ),
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Container(
-                                alignment: Alignment.center,
-                                height: 30,
-                                width: 130,
-                                color: Colors.green,
-                                child: Text(
-                                  "রিটেইলার",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
+                      return buildowshomiFal();
                     },
                   ),
                 ),
@@ -174,9 +150,79 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: 5,
                 ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  child: Container(
+                    height: 210,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            buildFosholJatKoron(),
+                            buildFosholJatKoron(),
+                            buildFosholJatKoron(),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            buildFosholJatKoron(),
+                            buildFosholJatKoron(),
+                            buildFosholJatKoron(),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  GestureDetector buildowshomiFal() {
+    return GestureDetector(
+      onTap: () {
+        print("1");
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10),
+        child: Column(
+          children: [
+            Container(
+              height: 80,
+              width: 100,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/unnamed.jpg"),
+                  fit: BoxFit.cover,
+                ),
+                border: Border.all(
+                  color: Colors.green,
+                ),
+                color: Colors.white,
+              ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              height: 30,
+              width: 100,
+              color: Colors.green,
+              child: Text(
+                "রিটেইলার",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -223,6 +269,50 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildFosholJatKoron() {
+    return GestureDetector(
+      onTap: () {
+        print("1");
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(3.0),
+        child: Column(
+          children: [
+            Container(
+              height: 90,
+              width: 120,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.grey,
+                ),
+                color: Colors.white,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/images/Fulkopi.jpg",
+                    height: 60,
+                    width: 60,
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "ফসল ক্রয়",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
